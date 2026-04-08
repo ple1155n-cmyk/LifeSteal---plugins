@@ -1,0 +1,90 @@
+# ==========================================
+# LifeStealPlugin - Release Version 1.3
+# ==========================================
+config-version: 1.3
+debug-mode: false # Enables execution profiling
+slow-task-threshold: 10 # ms
+
+# Maintenance Settings
+maintenance:
+  auto-update-config: true
+  backup-before-migration: true
+  periodic-backups:
+    enabled: true
+    interval-hours: 24
+
+# Enterprise Persistence
+storage:
+  type: SQLITE # Options: YAML, SQLITE, MYSQL
+  reconnect-retries: 5
+  save-interval: 300 # seconds
+  mysql:
+    host: localhost
+    port: 3306
+    database: lifesteal
+    username: root
+    password: ""
+    pool-size: 10
+    retry-attempts: 3
+
+# Admin & Monitoring
+monitoring:
+  debug-mode: false
+  alert-staff-on-suspicious: true
+  staff-permission: "lifesteal.admin"
+
+# Module Toggles
+modules:
+  vault-economy:
+    enabled: true
+    heart-cost: 5000.0
+  placeholder-api: true
+  discord-webhooks:
+    enabled: false
+    webhook-url: ""
+    rate-limit-per-min: 30
+
+# General Gameplay
+gameplay:
+  heart:
+    min: 1
+    max: 20
+    default: 10
+  combat:
+    gain-amount: 1
+    loss-amount: 1
+    ip-check: BLOCK # BLOCK, WARN, OFF
+    ip-whitelist: ["127.0.0.1"]
+    kill-cooldown: 3600 # 1 hour same player
+    log-suspicious-activity: true
+
+# Revive System
+revive:
+  enabled: true
+  max-per-player: 5
+  cooldown: 43200 # 12 hours
+  item-material: TOTEM_OF_UNDYING
+
+# Leaderboard
+leaderboard:
+  cache-time: 300 # seconds
+  size: 10
+
+# Ban System
+ban:
+  enabled: true
+  reason: "<red><b>ELIMINATED!</b></red>\n<gray>You ran out of hearts.</gray>"
+  broadcast: "<red><b>{player}</b></red> has been eliminated from the server!"
+
+# UI Messages
+messages:
+  prefix: "<gradient:#FF0000:#8B0000><b>LifeSteal</b></gradient> <gray>»</gray> "
+  no-permission: "<red>You don't have permission to do that!</red>"
+  heart-gain: "<green>+1 Heart!</green> <gray>You now have {hearts} hearts.</gray>"
+  heart-loss: "<red>-1 Heart!</red> <gray>You now have {hearts} hearts.</gray>"
+  cooldown-warning: "<red>Anti-Abuse:</red> <gray>Please wait {time}s.</gray>"
+  error-occurred: "<red>An internal error occurred. Please contact staff.</red>"
+  reload-success: "<green>LifeSteal has been reloaded successfully!</green>"
+  not-enough-money: "<red>You don't have enough money! Cost: ${cost}</red>"
+  max-hearts-reached: "<red>You have already reached the maximum hearts!</red>"
+  min-hearts-reached: "<red>You are already at the minimum hearts and cannot withdraw!</red>"

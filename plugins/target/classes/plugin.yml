@@ -1,0 +1,69 @@
+name: LifeStealPlugin
+version: 1.0.0
+main: com.example.lifesteal.LifeStealPlugin
+api-version: '1.21'
+
+description: Enterprise LifeSteal solution.
+authors: [ toilatoi10 ]
+
+softdepend: [ Vault, PlaceholderAPI ]
+
+commands:
+  lifesteal:
+    description: Main command for LifeStealPlugin.
+    usage: /<command> [subcommand]
+    permission: lifesteal.user
+
+  withdrawheart:
+    description: Withdraw a heart into an item.
+    usage: /<command>
+    permission: lifesteal.withdraw
+
+  useheart:
+    description: Use a heart item.
+    usage: /<command>
+    permission: lifesteal.use
+
+  buyheart:
+    description: Buy a heart using economy.
+    usage: /<command>
+    permission: lifesteal.buy
+
+  revive:
+    description: Revive a banned player.
+    usage: /<command> [player]
+    permission: lifesteal.revive
+
+  tophearts:
+    description: View the heart leaderboard.
+    usage: /<command>
+    permission: lifesteal.top
+
+permissions:
+  lifesteal.user:
+    description: Allows use of basic lifesteal commands.
+    default: true
+
+  lifesteal.withdraw:
+    description: Allows withdrawing hearts.
+    default: true
+
+  lifesteal.use:
+    description: Allows using heart items.
+    default: true
+
+  lifesteal.buy:
+    description: Allows buying hearts.
+    default: true
+
+  lifesteal.top:
+    description: Allows viewing the leaderboard.
+    default: true
+
+  lifesteal.revive:
+    description: Allows reviving players.
+    default: op
+
+  lifesteal.admin:
+    description: Allows administrative actions.
+    default: op
